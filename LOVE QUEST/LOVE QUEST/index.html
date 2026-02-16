@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Love Quest 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="soft-orb orb1"></div>
+    <div class="soft-orb orb2"></div>
+    <div class="soft-orb orb3"></div>
+
+    <div class="sparkle-field"></div>
+    <div class="balloon-layer"></div>
+    <div class="heart-layer"></div>
+    <div class="gift-layer"></div>
+
+    <div class="dark-vignette"></div>
+  </div>
+
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <span class="rose-dot"></span>
+        <span class="brand-title">Love Quest</span>
+        <span class="brand-sub">nine parts, one ending</span>
+      </div>
+    </header>
+
+    <section class="card single" id="card">
+      <div class="card-left">
+        <div class="headline">
+          <h1 id="title">Part 1</h1>
+          <p id="subtitle">A tiny story, told in clicks.</p>
+        </div>
+
+        <div class="action-row">
+          <button id="nextBtn" class="btn">
+            <span class="btn-icon">💞</span>
+            <span id="btnText">Next</span>
+          </button>
+        </div>
+
+        <!-- Unique love note UI -->
+        <div class="note-wrap" id="loveBox">
+          <div class="note-top">
+            <div class="wax" aria-hidden="true">❤</div>
+            <div class="note-lines" aria-hidden="true"></div>
+          </div>
+
+          <div class="note-body" id="loveText"></div>
+
+          <div class="note-bottom">
+            <span class="sig">from a brave heart</span>
+            <span class="shine" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right panel appears only on Part 9 -->
+      <div class="card-right" id="rightPanel" hidden>
+        <div class="scene">
+          <!-- Mature silhouette scene -->
+          <svg id="sceneSvg" viewBox="0 0 560 420" role="img" aria-label="Silhouette boy offering a gift to a girl">
+            <defs>
+              <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="55%" stop-color="#ffe7ef"/>
+                <stop offset="100%" stop-color="#ffd1dc"/>
+              </linearGradient>
+
+              <linearGradient id="ground" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#fff7fb"/>
+                <stop offset="100%" stop-color="#ffe0ea"/>
+              </linearGradient>
+
+              <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity=".16"/>
+              </filter>
+
+              <radialGradient id="glow" cx="50%" cy="40%" r="65%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+                <stop offset="40%" stop-color="#ffb9cd" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#ffb9cd" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <rect x="0" y="0" width="560" height="420" fill="url(#sky)"/>
+            <circle cx="170" cy="140" r="110" fill="url(#glow)" opacity="0.9"/>
+
+            <!-- soft clouds -->
+            <g opacity="0.55">
+              <path d="M70 92c34-32 76-24 100 0 20-20 48-24 68-10 26 16 30 52 8 72H78c-24-10-28-40-8-62z" fill="#fff"/>
+              <path d="M360 72c32-30 70-22 92 0 18-18 44-22 62-10 24 16 28 48 8 68H368c-22-10-26-38-8-58z" fill="#fff"/>
+            </g>
+
+            <g id="sceneHearts" opacity="0.9"></g>
+
+            <path d="M0 292 C120 252 238 342 340 302 C420 270 488 260 560 276 L560 420 L0 420 Z"
+              fill="url(#ground)"/>
+
+            <!-- Boy silhouette (left) -->
+            <g id="boy" transform="translate(70,228)" filter="url(#softShadow)">
+              <!-- head -->
+              <circle cx="80" cy="52" r="22" fill="#141016" opacity="0.92"/>
+              <!-- torso -->
+              <path d="M52 86c18-18 56-18 74 0v86H52z" fill="#141016" opacity="0.92"/>
+              <!-- legs -->
+              <path d="M62 172c0 30-10 56-10 56H34s10-26 10-56" fill="#141016" opacity="0.92"/>
+              <path d="M116 172c0 30 10 56 10 56h18s-10-26-10-56" fill="#141016" opacity="0.92"/>
+              <!-- arm -->
+              <path id="boyArm" d="M112 110c26 6 36 18 48 34" fill="none" stroke="#141016" stroke-width="14" stroke-linecap="round" opacity="0.92"/>
+              <!-- face emoji overlay (only NO) -->
+              <text id="boyEmoji" x="78" y="58" text-anchor="middle" font-size="24" style="display:none">😔</text>
+
+              <!-- gift (moves on YES) -->
+              <g id="gift" transform="translate(150,140)">
+                <rect x="0" y="14" width="44" height="32" rx="7" fill="#ff3b6b"/>
+                <rect x="18" y="14" width="8" height="32" fill="#fff"/>
+                <rect x="0" y="28" width="44" height="8" fill="#fff"/>
+                <path d="M22 14c-6-10-18-10-18-2 0 8 18 6 18 2z" fill="#fff"/>
+                <path d="M22 14c6-10 18-10 18-2 0 8-18 6-18 2z" fill="#fff"/>
+              </g>
+            </g>
+
+            <!-- Girl silhouette (right) -->
+            <g id="girl" transform="translate(356,220)" filter="url(#softShadow)">
+              <circle cx="80" cy="56" r="22" fill="#141016" opacity="0.9"/>
+              <!-- hair hint -->
+              <path d="M60 52c10-18 50-18 60 2 3 6 0 18-8 22-14-10-28-10-44 0-6-4-10-14-8-24z" fill="#0f0b10" opacity="0.92"/>
+              <path d="M52 92c18-18 56-18 74 0v90H52z" fill="#141016" opacity="0.9"/>
+              <path d="M62 176c0 30-10 56-10 56H34s10-26 10-56" fill="#141016" opacity="0.9"/>
+              <path d="M116 176c0 30 10 56 10 56h18s-10-26-10-56" fill="#141016" opacity="0.9"/>
+              <path id="girlArm" d="M48 116c-18 10-28 22-34 40" fill="none" stroke="#141016" stroke-width="14" stroke-linecap="round" opacity="0.9"/>
+              <text id="girlEmoji" x="80" y="62" text-anchor="middle" font-size="24" style="display:none">😔</text>
+            </g>
+          </svg>
+
+          <div class="final-ui">
+            <div class="question" id="questionText">Should he give the gift and make it official?</div>
+
+            <div class="yn">
+              <button class="btn yes" id="yesBtn"><span class="btn-icon">✅</span><span>Yes</span></button>
+              <button class="btn ghost no" id="noBtn"><span class="btn-icon">❌</span><span>No</span></button>
+            </div>
+
+            <!-- Instagram CTA appears after YES -->
+            <div class="ig-cta" id="igCta" hidden>
+              <div class="ig-title">Tell your wish 💌</div>
+              <div class="ig-sub">Tap Instagram and send what’s in your heart.</div>
+              <a class="ig-btn" id="igLink" href="#" target="_blank" rel="noopener" aria-label="Open Instagram">
+                <span class="ig-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M7.5 2.5h9A5 5 0 0 1 21.5 7.5v9A5 5 0 0 1 16.5 21.5h-9A5 5 0 0 1 2.5 16.5v-9A5 5 0 0 1 7.5 2.5Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M17.4 6.6h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span>Instagram</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
